@@ -2,7 +2,49 @@
 ### IoT-Driven Supply Chain and Autonomous Fleet Ecosystem
 
 ---
+```mermaid
+graph LR
+    %% Advanced CSS Styling for Smoothness and Color
+    classDef userGateway fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef coreApp fill:#1e1b4b,stroke:#818cf8,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef aiEngine fill:#4c0519,stroke:#f43f5e,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef cloudInfra fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#fff,rx:20,ry:20;
+    classDef dataLayer fill:#422006,stroke:#fb923c,stroke-width:2px,color:#fff,rx:20,ry:20;
+    
+    %% Link Styling (Sleek grey paths)
+    linkStyle default stroke:#64748b,stroke-width:2px,fill:none;
 
+    %% Free-floating Nodes with Logistics Icons
+    Driver(["fa:fa-truck Driver / Fleet App"]):::userGateway
+    Dispatch(["fa:fa-map-location-dot Dispatcher Portal"]):::userGateway
+    API(["fa:fa-network-wired Logistics API Gateway"]):::userGateway
+    
+    WMS(["fa:fa-warehouse Warehouse Management"]):::coreApp
+    TMS(["fa:fa-route Transport Management (TMS)"]):::coreApp
+    
+    AI(["fa:fa-brain AI Route Optimization"]):::aiEngine
+    Predict(["fa:fa-truck-fast Predictive Maintenance"]):::aiEngine
+    
+    IoT(["fa:fa-satellite IoT Fleet Tracking"]):::cloudInfra
+    Cloud(["fa:fa-server Edge & Cloud Infrastructure"]):::cloudInfra
+    
+    CRM(["fa:fa-users Vendor & Client CRM"]):::dataLayer
+    Data(["fa:fa-boxes-stacked Unified Supply Chain"]):::dataLayer
+
+    %% Flow Path Connections
+    Driver == "Live Telematics" ==> API
+    Dispatch == "Route/Track" ==> API
+    API -. "Secure Auth" .-> TMS
+    API ==> WMS
+    WMS ==> TMS
+    TMS ==> AI
+    AI -. "Live Traffic/Weather" .-> Predict
+    IoT ==> Cloud
+    TMS ==> Cloud
+    Cloud ==> CRM
+    Predict ==> Data
+    CRM ==> Data
+```
 ![Status](https://img.shields.io/badge/Status-BD5A00?style=flat) ![Proprietary](https://img.shields.io/badge/Proprietary-FF8C00?style=flat) &nbsp; ![Industry](https://img.shields.io/badge/Industry-004B8D?style=flat) ![Logistics](https://img.shields.io/badge/Logistics-007FFF?style=flat) &nbsp; ![Architecture](https://img.shields.io/badge/Architecture-00695C?style=flat) ![Ecosystem](https://img.shields.io/badge/Ecosystem-26A69A?style=flat)
 
 This repository serves as a mission-critical engineering showcase by **Altynx**. It demonstrates a unified approach to modern Logistics technology, focusing on real-time visibility, automated warehousing, and intelligent supply chain orchestration.
